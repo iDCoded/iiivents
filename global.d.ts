@@ -3,3 +3,7 @@ interface EventProps {
 	eventDescription: string;
 	eventPrice: number;
 }
+
+interface ErrorResponse {
+	error: string;
+}
