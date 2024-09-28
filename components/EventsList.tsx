@@ -18,7 +18,7 @@ const EventsList = async () => {
 
 	return (
 		<>
-			<div>
+			<div className="flex flex-row flex-wrap gap-8">
 				{events.map((event: EventProps) => {
 					return (
 						<EventCard
