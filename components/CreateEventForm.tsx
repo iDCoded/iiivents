@@ -10,8 +10,12 @@ import { useToast } from "@/hooks/use-toast";
 export default function CreateEventForm() {
 	const { toast } = useToast();
 
+	const curr = new Date();
+	curr.setDate(curr.getDate() + 1);
+	const today = curr.toISOString().substring(0, 10);
+
 	const [title, setTitle] = useState("");
-	const [date, setDate] = useState("");
+	const [date, setDate] = useState(today);
 	const [price, setPrice] = useState("");
 	const [description, setDescription] = useState("");
 
@@ -37,7 +41,7 @@ export default function CreateEventForm() {
 			if (res.ok) {
 				const data = await res.json();
 				setTitle("");
-				setDate("");
+				setDate(today);
 				setPrice("");
 				setDescription("");
 
@@ -80,6 +84,7 @@ export default function CreateEventForm() {
 							id="date"
 							type="date"
 							value={date}
+							defaultValue={today}
 							onChange={(e) => setDate(e.target.value)}
 							required
 						/>
