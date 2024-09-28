@@ -5,13 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardTitle } from "./ui/card";
+import { useToast } from "@/hooks/use-toast";
 
 export default function CreateEventForm() {
+	const { toast } = useToast();
+
 	const [title, setTitle] = useState("");
 	const [date, setDate] = useState("");
 	const [price, setPrice] = useState("");
 	const [description, setDescription] = useState("");
-	const [message, setMessage] = useState("");
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -34,17 +36,26 @@ export default function CreateEventForm() {
 
 			if (res.ok) {
 				const data = await res.json();
-				setMessage(`Event created successfully: ${data.event.eventName}`);
 				setTitle("");
 				setDate("");
 				setPrice("");
 				setDescription("");
+
+				toast({
+					description: `Event created successfully: ${data.event.eventName}`,
+				});
 			} else {
-				setMessage("Failed to create event");
+				toast({
+					variant: "destructive",
+					description: "Failed to create event.",
+				});
 			}
 		} catch (error) {
 			console.error("Error creating event:", error);
-			setMessage("Error creating event");
+			toast({
+				variant: "destructive",
+				description: "Error creating event",
+			});
 		}
 	};
 
@@ -94,7 +105,6 @@ export default function CreateEventForm() {
 					</div>
 					<Button type="submit">Create Event</Button>
 				</form>
-				{message && <p>{message}</p>}
 			</Card>
 		</div>
 	);

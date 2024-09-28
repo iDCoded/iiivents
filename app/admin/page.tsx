@@ -1,5 +1,6 @@
 import CreateEventForm from "@/components/CreateEventForm";
 import HomeButton from "@/components/HomeButton";
+import { Toaster } from "@/components/ui/toaster";
 import React from "react";
 
 const Page = () => {
@@ -10,6 +11,7 @@ const Page = () => {
 				<HomeButton />
 			</div>
 			<CreateEventForm />
+			<Toaster />
 		</div>
 	);
 };
