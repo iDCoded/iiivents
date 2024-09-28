@@ -1,10 +1,13 @@
 import { EventProps } from "@/types/global";
 import EventCard from "./EventCard";
 import { Alert, AlertTitle } from "./ui/alert";
+import { headers } from "next/headers";
 
 const EventsList = async () => {
 	const fetchEvents = async () => {
-		const res = await fetch("http://localhost:3000/api/events", {
+		const host = headers().get("host");
+		const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+		const res = await fetch(`${protocol}://${host}/api/events`, {
 			cache: "no-store",
 		});
 		const events = await res.json();
