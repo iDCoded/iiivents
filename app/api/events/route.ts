@@ -34,7 +34,10 @@ export async function POST(req: NextRequest) {
 			message: "Event created successfully",
 			event: newEvent,
 		});
-	} catch (err) {
-		console.log(err.message);
+	} catch (error) {
+		console.error("Error creating event:", error);
+
+		const errorResponse: ErrorResponse = { error: "Failed to create event" };
+		return NextResponse.json(errorResponse, { status: 500 });
 	}
 }
