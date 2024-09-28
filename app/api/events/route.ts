@@ -1,4 +1,4 @@
-import { ErrorResponse, EventInput } from "@/global";
+import { ErrorResponse, EventInput } from "@/types/global";
 import dbConnect from "@/lib/dbConnect";
 import Event from "@/models/Event";
 import { NextRequest, NextResponse } from "next/server";

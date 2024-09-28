@@ -8,7 +8,7 @@ import {
 	CardTitle,
 } from "./ui/card";
 import { Button } from "./ui/button";
-import { EventProps } from "@/global";
+import { EventProps } from "@/types/global";
 
 const EventCard = ({ eventName, eventDescription, eventPrice }: EventProps) => {
 	return (

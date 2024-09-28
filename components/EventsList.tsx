@@ -1,4 +1,4 @@
-import { EventProps } from "@/global";
+import { EventProps } from "@/types/global";
 import EventCard from "./EventCard";
 
 const EventsList = async () => {
