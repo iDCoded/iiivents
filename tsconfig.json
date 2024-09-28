@@ -18,8 +18,10 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./*"]
-		}
+			"@/*": ["./*"],
+			"@components/*": ["./components/ui/*"]
+		},
+		"baseUrl": "."
 	},
 	"include": [
 		"next-env.d.ts",
