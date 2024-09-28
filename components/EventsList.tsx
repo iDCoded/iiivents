@@ -15,6 +15,7 @@ const EventsList = async () => {
 		if (!res.ok) {
 			throw new Error("Failed to fetch events");
 		}
+		console.log(`${protocol}://${host}/api/events`);
 		return events;
 	};
 
