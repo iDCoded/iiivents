@@ -19,16 +19,20 @@ const EventsList = async () => {
 	return (
 		<>
 			<div className="flex flex-row flex-wrap gap-8">
-				{events.map((event: EventProps) => {
-					return (
-						<EventCard
-							key={event.eventName}
-							eventName={event.eventName}
-							eventDescription={event.eventDescription}
-							eventPrice={event.eventPrice}
-						/>
-					);
-				})}
+				{events.length > 0 ? (
+					events.map((event: EventProps) => {
+						return (
+							<EventCard
+								key={event.eventName}
+								eventName={event.eventName}
+								eventDescription={event.eventDescription}
+								eventPrice={event.eventPrice}
+							/>
+						);
+					})
+				) : (
+					<h2 className="text-xl">There are no events.</h2>
+				)}
 			</div>
 		</>
 	);
