@@ -1,5 +1,5 @@
 interface EventProps {
 	eventName: string;
-	eventDesc: string;
+	eventDescription: string;
 	eventPrice: number;
 }
