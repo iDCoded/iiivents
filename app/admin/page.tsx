@@ -1,10 +1,14 @@
 import CreateEventForm from "@/components/CreateEventForm";
+import HomeButton from "@/components/HomeButton";
 import React from "react";
 
 const Page = () => {
 	return (
 		<div>
-			<h2 className="text-4xl font-bold p-8 pb-2">Admin Dashboard</h2>
+			<div className="flex flex-row justify-between px-12 pt-8">
+				<h2 className="text-4xl font-bold">Admin Dashboard</h2>
+				<HomeButton />
+			</div>
 			<CreateEventForm />
 		</div>
 	);
