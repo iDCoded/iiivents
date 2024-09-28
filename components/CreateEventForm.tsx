@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Card, CardTitle } from "./ui/card";
 
 export default function CreateEventForm() {
 	const [title, setTitle] = useState("");
@@ -48,50 +49,53 @@ export default function CreateEventForm() {
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit} className="space-y-4">
-				<div>
-					<Label htmlFor="title">Event Title</Label>
-					<Input
-						id="title"
-						type="text"
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
-						required
-					/>
-				</div>
-				<div>
-					<Label htmlFor="date">Date</Label>
-					<Input
-						id="date"
-						type="date"
-						value={date}
-						onChange={(e) => setDate(e.target.value)}
-						required
-					/>
-				</div>
-				<div>
-					<Label htmlFor="price">Price</Label>
-					<Input
-						id="price"
-						type="number"
-						value={price}
-						onChange={(e) => setPrice(e.target.value)}
-						required
-					/>
-				</div>
-				<div>
-					<Label htmlFor="description">Description</Label>
-					<Input
-						id="description"
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-						required
-					/>
-				</div>
-				<Button type="submit">Create Event</Button>
-			</form>
-			{message && <p>{message}</p>}
+		<div className="flex flex-col p-8 justify-center items-center">
+			<Card className="p-8 w-[768px]">
+				<CardTitle className="pb-4 text-2xl font-bold">Create Event</CardTitle>
+				<form onSubmit={handleSubmit} className="space-y-4">
+					<div>
+						<Label htmlFor="title">Event Title</Label>
+						<Input
+							id="title"
+							type="text"
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
+							required
+						/>
+					</div>
+					<div>
+						<Label htmlFor="date">Date</Label>
+						<Input
+							id="date"
+							type="date"
+							value={date}
+							onChange={(e) => setDate(e.target.value)}
+							required
+						/>
+					</div>
+					<div>
+						<Label htmlFor="price">Price</Label>
+						<Input
+							id="price"
+							type="number"
+							value={price}
+							onChange={(e) => setPrice(e.target.value)}
+							required
+						/>
+					</div>
+					<div>
+						<Label htmlFor="description">Description</Label>
+						<Input
+							id="description"
+							value={description}
+							onChange={(e) => setDescription(e.target.value)}
+							required
+						/>
+					</div>
+					<Button type="submit">Create Event</Button>
+				</form>
+				{message && <p>{message}</p>}
+			</Card>
 		</div>
 	);
 }
