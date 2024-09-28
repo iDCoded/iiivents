@@ -1,3 +1,4 @@
+import { ErrorResponse, EventInput } from "@/global";
 import dbConnect from "@/lib/dbConnect";
 import Event from "@/models/Event";
 import { NextRequest, NextResponse } from "next/server";
@@ -14,18 +15,18 @@ export async function GET() {
 	}
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest): Promise<NextResponse> {
 	await dbConnect();
 	try {
-		const body = await req.json();
+		const body: EventInput = await req.json();
 
-		// const { eventName, eventDescription, eventPrice, eventDate } = body;
+		const { eventName, eventDescription, eventDate, eventPrice } = body;
 
 		const newEvent = new Event({
-			eventName: body.eventName,
-			eventDescription: body.eventDescription,
-			eventPrice: body.eventPrice,
-			eventDate: body.eventDate,
+			eventName,
+			eventDescription,
+			eventPrice,
+			eventDate,
 		});
 
 		await newEvent.save();
