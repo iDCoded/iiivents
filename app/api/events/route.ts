@@ -10,8 +10,12 @@ export async function GET() {
 		const events = await Event.find({});
 		return NextResponse.json(events);
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	} catch (err: any) {
-		return NextResponse.json({ err: err.message });
+	} catch (err) {
+		if (err instanceof Error) {
+			return NextResponse.json({ err: err.message });
+		}
+		// In case the error is not an instance of Error, handle it generically
+		return NextResponse.json({ err: "An unexpected error occurred" });
 	}
 }
 
