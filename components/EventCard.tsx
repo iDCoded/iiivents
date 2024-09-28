@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import {
 	Card,
 	CardContent,
@@ -9,11 +8,12 @@ import {
 	CardTitle,
 } from "./ui/card";
 import { Button } from "./ui/button";
+import { EventProps } from "@/global";
 
 const EventCard = ({ eventName, eventDescription, eventPrice }: EventProps) => {
 	return (
 		<>
-			<div>
+			<div className="hover:scale-105 cursor-pointer">
 				<Card className="w-80 min-w-48">
 					<CardHeader>
 						<CardTitle className="text-xl">{eventName}</CardTitle>
