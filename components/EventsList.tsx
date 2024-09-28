@@ -1,5 +1,6 @@
 import { EventProps } from "@/types/global";
 import EventCard from "./EventCard";
+import { Alert, AlertTitle } from "./ui/alert";
 
 const EventsList = async () => {
 	const fetchEvents = async () => {
@@ -31,7 +32,11 @@ const EventsList = async () => {
 						);
 					})
 				) : (
-					<h2 className="text-xl">There are no events.</h2>
+					<>
+						<Alert className="text-xl">
+							<AlertTitle>There are no active events</AlertTitle>
+						</Alert>
+					</>
 				)}
 			</div>
 		</>
