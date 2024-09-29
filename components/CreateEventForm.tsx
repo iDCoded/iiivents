@@ -67,7 +67,7 @@ export default function CreateEventForm() {
 		<div className="flex flex-col p-8 justify-center items-center">
 			<Card className="p-8 lg:w-[768px] md:w-[568px] sm:w-[368px]">
 				<CardTitle className="pb-4 text-2xl font-bold">Create Event</CardTitle>
-				<form onSubmit={handleSubmit} className="space-y-4">
+				<form onSubmit={handleSubmit} className="space-y-4" autoComplete="off">
 					<div>
 						<Label htmlFor="title">Event Title</Label>
 						<Input
