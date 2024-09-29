@@ -22,7 +22,7 @@ const EventsList = async () => {
 
 	return (
 		<>
-			<div className="flex flex-row flex-wrap gap-8">
+			<div className="flex flex-row flex-wrap gap-8 sm:justify-normal justify-center">
 				{events.length > 0 ? (
 					events.map((event: EventProps) => {
 						return (
