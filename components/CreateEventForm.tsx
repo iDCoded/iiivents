@@ -10,12 +10,15 @@ import { useToast } from "@/hooks/use-toast";
 export default function CreateEventForm() {
 	const { toast } = useToast();
 
-	const curr = new Date();
-	curr.setDate(curr.getDate() + 1);
-	const today = curr.toISOString().substring(0, 10);
+	const getToday = () => {
+		const curr = new Date();
+		curr.setDate(curr.getDate());
+		const today = curr.toISOString().substring(0, 10);
+		return today;
+	};
 
 	const [title, setTitle] = useState("");
-	const [date, setDate] = useState(today);
+	const [date, setDate] = useState(getToday());
 	const [price, setPrice] = useState("");
 	const [description, setDescription] = useState("");
 
@@ -41,7 +44,7 @@ export default function CreateEventForm() {
 			if (res.ok) {
 				const data = await res.json();
 				setTitle("");
-				setDate(today);
+				setDate(getToday());
 				setPrice("");
 				setDescription("");
 
@@ -65,9 +68,9 @@ export default function CreateEventForm() {
 
 	return (
 		<div className="flex flex-col p-8 justify-center items-center">
-			<Card className="p-8 w-[768px]">
+			<Card className="p-8 lg:w-[768px] md:w-[568px] sm:w-[368px]">
 				<CardTitle className="pb-4 text-2xl font-bold">Create Event</CardTitle>
-				<form onSubmit={handleSubmit} className="space-y-4">
+				<form onSubmit={handleSubmit} className="space-y-4" autoComplete="off">
 					<div>
 						<Label htmlFor="title">Event Title</Label>
 						<Input
@@ -84,7 +87,6 @@ export default function CreateEventForm() {
 							id="date"
 							type="date"
 							value={date}
-							defaultValue={today}
 							onChange={(e) => setDate(e.target.value)}
 							required
 						/>

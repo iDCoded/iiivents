@@ -1,17 +1,12 @@
 "use client";
+import Link from "next/link";
 import { Button } from "./ui/button";
-import { useRouter } from "next/navigation";
 
 const AdminButton = () => {
-	const router = useRouter();
 	return (
 		<div>
-			<Button
-				onClick={() => {
-					router.push("/admin");
-				}}
-				variant="destructive">
-				Admin
+			<Button asChild variant="destructive">
+				<Link href={"/admin"}>Admin</Link>
 			</Button>
 		</div>
 	);
