@@ -87,7 +87,6 @@ export default function CreateEventForm() {
 							id="date"
 							type="date"
 							value={date}
-							defaultValue={getToday()}
 							onChange={(e) => setDate(e.target.value)}
 							required
 						/>
