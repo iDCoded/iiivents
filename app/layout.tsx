@@ -2,13 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/Footer";
-import {
-	ClerkProvider,
-	SignedIn,
-	SignedOut,
-	SignInButton,
-	UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -36,15 +30,7 @@ export default function RootLayout({
 			<html lang="en">
 				<body
 					className={`min-h-screen flex flex-col ${geistSans.className} ${geistMono.className} antialiased`}>
-					<main className="flex-grow">
-						<SignedOut>
-							<SignInButton />
-						</SignedOut>
-						<SignedIn>
-							<UserButton />
-						</SignedIn>
-						{children}
-					</main>
+					<main className="flex-grow">{children}</main>
 					<Footer />
 				</body>
 			</html>
