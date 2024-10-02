@@ -8,7 +8,7 @@ const Home = () => {
 			<div className=" flex flex-row justify-between p-8">
 				<h1 className="text-4xl font-bold">Upcoming Events</h1>
 				<SignedOut>
-					<SignInButton />
+					<SignInButton mode="modal" />
 				</SignedOut>
 				<SignedIn>
 					<UserButton showName />
